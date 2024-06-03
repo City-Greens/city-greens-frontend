@@ -5,9 +5,11 @@ import Home from './Components/Home'
 import Header from './Components/Header'
 import Footer from './Components/Footer'
 import Auth from './Components/Auth'
+import { withAuth0 } from "@auth0/auth0-react";
 
-function App() {
+function App({ auth0 }) {
 
+  const { isAuthenticated } = auth0;
   return (
     <BrowserRouter>
       <Header />
@@ -20,4 +22,4 @@ function App() {
   )
 }
 
-export default App
+export default withAuth0(App);
