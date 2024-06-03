@@ -1,5 +1,5 @@
 
-export default function HomeSearch() {
+export default function BigSearch() {
   return (
     <div className="flex justify-center items-center mt-10 py-10">
       <input
