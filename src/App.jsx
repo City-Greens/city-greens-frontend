@@ -7,7 +7,7 @@ import Footer from './Components/Footer'
 import SignUp from './Components/SignUp'
 import SignIn from './Components/SignIn'
 import Page404 from './Components/404'
-import Profile from './Components/Profile'
+import Profile from './Components/Profile/index'
 import ProductSearch from './Components/ProductSearch'
 import { withAuth0 } from "@auth0/auth0-react";
 
@@ -18,9 +18,8 @@ function App({ auth0 }) {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />}/> 
-        <Route path="/profile" element={isAuthenticated ? <Profile /> : <Home/>}/>
-        <Route path="/profile2" element={<Profile />}/>
+        <Route path="/" element={<Home />} />
+        <Route path="/profile" element={isAuthenticated ? <Profile /> : <Home />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/search" element={<ProductSearch />} />
