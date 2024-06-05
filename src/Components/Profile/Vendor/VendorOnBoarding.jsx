@@ -1,5 +1,5 @@
 import React from 'react';
-import useAuthClaim from "../../hooks/customAuth";
+import useAuthClaim from "../../../hooks/customAuth";
 import { useAuth0 } from "@auth0/auth0-react";
 
 export default function VendorOnBoarding() {

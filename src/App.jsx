@@ -7,13 +7,15 @@ import Footer from './Components/Footer'
 import SignUp from './Components/SignUp'
 import SignIn from './Components/SignIn'
 import Page404 from './Components/404'
-import VendorProfile from './Components/Profile/index'
+import VendorProfile from './Components/Profile/Vendor'
+import CustomerProfile from './Components/Profile/Customer'
 import ProductSearch from './Components/ProductSearch'
 import { withAuth0 } from "@auth0/auth0-react";
+import useAuthClaim from "./hooks/customAuth";
+
 
 function App({ auth0 }) {
-  //TODO: get role from user
-  //UPDATE links based on role for profile
+  const role = useAuthClaim('role');
 
   const { isAuthenticated } = auth0;
   return (
@@ -21,8 +23,8 @@ function App({ auth0 }) {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/profile" element={isAuthenticated ? <VendorProfile /> : <Home />} />
-
+        {role === 'vendor' && <Route path="/profile" element={isAuthenticated ? <VendorProfile /> : <Home />} />}
+        {role === 'customer' && <Route path="/profile" element={isAuthenticated ? <CustomerProfile /> : <Home />} />}
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/search" element={<ProductSearch />} />
