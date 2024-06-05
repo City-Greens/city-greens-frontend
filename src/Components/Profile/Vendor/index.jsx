@@ -75,6 +75,7 @@ const VendorProfile = () => {
 
   return (
     <>
+      {!account && <h1>Loading...</h1>}
       {!verified ? <Verification account={account} toggleVerification={toggleVerification} detailsSubmitted={detailsSubmitted} requirements={requirements} /> : null
       }
       {verified ?
