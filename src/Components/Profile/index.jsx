@@ -25,9 +25,11 @@ const VendorProfile = () => {
       });
       const account = await response.json();
       setDetailsSubmitted(account.details_submitted);
-      setRequirements(account.requirements);
-      console.log('response', account);
+      console.log('account requirements', account.requirements);
+      setRequirements(account.requirements.currently_due);
+
       setAccount(account);
+      console.log('response', account);
     } catch (err) {
       console.error(err);
     } finally {
@@ -44,9 +46,11 @@ const VendorProfile = () => {
   }
 
   //BUG: Flashes onboarding page before states are set. async issue, tried to fix with loading state
-  if (!detailsSubmitted && !loading) {
+  if (!detailsSubmitted && !loading && account) {
+    console.log('inner account', account);
     return (
       <>
+        <h1>Welcome {account.business_profile.name}!</h1>
         <h1>Please complete your account details!</h1>
         <VendorOnBoarding />
       </>
@@ -54,9 +58,11 @@ const VendorProfile = () => {
   }
 
   //TODO: iFrame for dashboard! 
+  //STYLE THE BUTTON HARD TO SEE
   if (detailsSubmitted && requirements.length) {
     return (
       <>
+        <h1>Welcome {account.business_profile.name}!</h1>
         <h1>Details submitted, but you have some requirements!</h1>
         <button><a href={`https://dashboard.stripe.com/test`} target="_blank">Complete Requirements in your dashboard!</a></button>
       </>
