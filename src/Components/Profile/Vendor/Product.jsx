@@ -1,6 +1,6 @@
 import defaultImage from '../../../assets/city-greens-logo.png';
 
-export default function Product({ name, default_price, description }) {
+export default function Product({ name, price, description }) {
   return (
     <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-4">
       <div className="flex">
@@ -9,7 +9,7 @@ export default function Product({ name, default_price, description }) {
         </div>
         <div className="w-2/3 px-6 py-4">
           <h3 className="font-bold text-xl mb-2">{name}</h3>
-          <p className="text-gray-700 text-base">Price: ${default_price}</p>
+          <p className="text-gray-700 text-base">Price: ${price}</p>
           <p className="text-gray-700 text-base mt-2">Description: {description}</p>
         </div>
       </div>

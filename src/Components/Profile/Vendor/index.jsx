@@ -81,7 +81,7 @@ const VendorProfile = () => {
         <>
           <VendorDisplay account={account} />
           <ProductForm />
-          <ProductList products={products} />
+          {products && <ProductList products={products} />}
         </>
         : null}
 
