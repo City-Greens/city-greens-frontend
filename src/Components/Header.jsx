@@ -1,4 +1,3 @@
-
 import logo from '../assets/city-greens-logo.png';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -21,11 +20,11 @@ export default function Header() {
         <img src={logo} alt="Logo" className="h-12" />
       </div>
       <div className="flex-1 flex justify-end items-center">
-        {isAuthenticated ? 
-        <button onClick={() => logout({ returnTo: window.location.origin })} className="bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded ml-2">Log Out</button>
-        : 
-        <button  onClick={() => loginWithRedirect()} className="bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded ml-2"> Login </button>
-      } 
+        {isAuthenticated ?
+          <button onClick={() => logout({ returnTo: window.location.origin })} className="bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded ml-2">Log Out</button>
+          :
+          <button onClick={() => loginWithRedirect()} className="bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded ml-2"> Login </button>
+        }
       </div>
     </header>
   )

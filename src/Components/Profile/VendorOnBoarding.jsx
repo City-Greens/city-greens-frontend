@@ -1,3 +1,4 @@
+import React from 'react';
 import useAuthClaim from "../../hooks/customAuth";
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -5,7 +6,6 @@ export default function VendorOnBoarding() {
   const { user } = useAuth0();
   const onboarded = useAuthClaim('onboarded');
   const strip_id = useAuthClaim('stripe_id');
-
 
   const handleCreateAccountLink = async () => {
     try {
@@ -19,7 +19,6 @@ export default function VendorOnBoarding() {
         }),
       });
       const json = await response.json();
-      setAccountLinkCreatePending(false);
 
       const { url, error } = json;
       if (url) {
@@ -32,7 +31,6 @@ export default function VendorOnBoarding() {
     } catch (err) {
       console.error(err);
       setError(true);
-      setAccountLinkCreatePending(false);
     }
   };
 
@@ -48,8 +46,6 @@ export default function VendorOnBoarding() {
         <li>Once verified, you will be redirected back here</li>
       </ol>
       <button onClick={handleCreateAccountLink}>Create Account</button>
-
     </>
   )
 }
-

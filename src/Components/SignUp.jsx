@@ -93,7 +93,7 @@ export default function SignUp() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          account: connectedAccountId,
+          accountID: connectedAccountId,
         }),
       });
       const json = await response.json();
