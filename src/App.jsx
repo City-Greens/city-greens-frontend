@@ -13,6 +13,7 @@ import ProductSearch from './Components/Search/index'
 import Cart from './Components/Cart'
 import { withAuth0 } from "@auth0/auth0-react";
 import useAuthClaim from "./hooks/customAuth";
+import Loading from './Components/Loading'
 
 
 function App({ auth0 }) {
@@ -30,6 +31,7 @@ function App({ auth0 }) {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/search" element={<ProductSearch />} />
         <Route path="/cart" element={isAuthenticated && role === 'customer' ? <Cart /> : null} />
+        <Route path="/loading" element={<Loading />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
       <Footer />
