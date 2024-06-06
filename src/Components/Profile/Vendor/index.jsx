@@ -38,7 +38,7 @@ const VendorProfile = () => {
     }
   };
 
-  const getSingleProduct = async () => {
+  const getVendorProducts = async () => {
     try {
       const response = await fetch('http://localhost:4242/get-products', {
         method: 'POST',
@@ -65,7 +65,7 @@ const VendorProfile = () => {
   useEffect(() => {
     if (stripe_id && isAuthenticated) {
       getAccount();
-      getSingleProduct();
+      getVendorProducts();
     }
   }, [stripe_id, isAuthenticated]);
 
@@ -89,7 +89,7 @@ const VendorProfile = () => {
           <div className='w-2/3 mx-10'>
             {products?.length ? <ProductList products={products} /> : <p className='py-8 text-3xl'>No products yet!</p>}
           </div>
-          
+
         </div>
         : null}
 

@@ -37,8 +37,9 @@ export default function ProductForm() {
     handleSubmit(newProduct);
     form.reset();
     alert('Product Added')
+    window.location.reload();
   }
-  
+
   return (
     <div className='w-full bg-slate-50'>
 
