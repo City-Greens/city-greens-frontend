@@ -28,7 +28,7 @@ function App({ auth0 }) {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/search" element={<ProductSearch />} />
-        <Route path="*" element={<Page404 />} />
+        {/* <Route path="*" element={<Page404 />} /> */}
       </Routes>
       <Footer />
     </BrowserRouter>

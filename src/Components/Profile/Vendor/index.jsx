@@ -79,11 +79,16 @@ const VendorProfile = () => {
       {!verified ? <Verification account={account} toggleVerification={toggleVerification} detailsSubmitted={detailsSubmitted} requirements={requirements} /> : null
       }
       {verified ?
-        <>
-          <VendorDisplay account={account} />
-          <ProductForm />
-          {products ? <ProductList products={products} /> : <h1>No products yet!</h1>}
-        </>
+        <div className='flex'>
+          <div className="flex-grow">
+            <VendorDisplay account={account} />
+            <ProductForm />
+          </div>
+          <div className='flex-grow overflow-scroll'>
+            {products?.length ? <ProductList products={products} /> : <p className='py-8 text-3xl'>No products yet!</p>}
+          </div>
+          
+        </div>
         : null}
 
     </>
