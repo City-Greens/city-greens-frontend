@@ -28,6 +28,7 @@ export default function Cart() {
             quantity: item.quantity,
           })),
           customer_id: customer.stripeId,
+          vendor_id: cart[0].stripeAccount,
         }),
       });
 

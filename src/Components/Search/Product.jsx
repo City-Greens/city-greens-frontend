@@ -2,15 +2,30 @@ import { useAuth0 } from '@auth0/auth0-react';
 import defaultImage from '../../assets/city-greens-logo.png';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../storage/cart';
+import { useSelector } from 'react-redux';
 
 export default function Product({ product }) {
+  const current_vendor = useSelector((state) => state.cart.vendor_selected);
+  const cart = useSelector((state) => state.cart.cart);
 
   const { name, price, description } = product;
 
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
-    dispatch(addToCart(product));
+    if (cart.length > 0) {
+      console.log("vendor", current_vendor, 'product.stipeAccount', product.stripeAccount);
+      if (current_vendor === product.stripeAccount) {
+
+        dispatch(addToCart(product));
+      } else {
+        alert("You can only add items from one vendor at a time!");
+        //TODO: ASK if they want to clear cart and add current product to cart
+      }
+    };
+    if (cart.length === 0) {
+      dispatch(addToCart(product));
+    }
   };
 
 
