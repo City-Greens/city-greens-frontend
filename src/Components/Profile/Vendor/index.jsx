@@ -79,6 +79,7 @@ const VendorProfile = () => {
       {!verified ? <Verification account={account} toggleVerification={toggleVerification} detailsSubmitted={detailsSubmitted} requirements={requirements} /> : null
       }
       {verified ?
+
         <div className='flex'>
           <div className="flex-grow">
             <VendorDisplay account={account} />

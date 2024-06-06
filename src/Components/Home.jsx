@@ -1,5 +1,5 @@
 import Hero from './Hero';
-import BigSearch from './BigSearch';
+import BigSearch from './Search/BigSearch.jsx';
 import NearbyVendors from './NearbyVendors';
 
 
