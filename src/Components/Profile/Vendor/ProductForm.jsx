@@ -2,12 +2,6 @@ import React, { useState } from 'react';
 
 export default function ProductForm() {
   // State to manage form visibility
-  const [isFormVisible, setFormVisible] = useState(false);
-
-  // Handler to toggle form visibility
-  const toggleFormVisibility = () => {
-    setFormVisible(!isFormVisible);
-  };
 
 
   const handleSubmit = async (newProduct) => {
@@ -38,12 +32,9 @@ export default function ProductForm() {
   }
   return (
     <div>
-      <button onClick={toggleFormVisibility}>
-        {isFormVisible ? 'Hide Form' : 'Add New Product'}
-      </button>
-
-      {isFormVisible && (
-        <form className="mt-4 max-w-lg mx-auto bg-white p-8 rounded shadow-md" onSubmit={addNewProduct}>
+        
+      <form className="mt-4 max-w-lg mx-auto bg-white p-8 rounded shadow-md" onSubmit={addNewProduct}>
+        <p className='text-center w-full text-3xl py-4'> Create New Product </p>
           <div className="mb-4">
             <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
               Name:
@@ -83,7 +74,7 @@ export default function ProductForm() {
             Submit
           </button>
         </form>
-      )}
+      
     </div>
   );
 };
