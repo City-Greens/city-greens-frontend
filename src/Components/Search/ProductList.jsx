@@ -6,7 +6,7 @@ export default function ProductList({ products }) {
     <>
       {
         products.map((product, key) => {
-          return <Product key={key} {...product} />
+          return <Product key={key} product={product} />
         })
       }
     </>

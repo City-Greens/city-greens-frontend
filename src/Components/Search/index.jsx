@@ -7,6 +7,7 @@ import { fetchProducts } from "../../storage/products";
 export default function ProductSearch() {
   const products = useSelector((state) => state.products.products);
   const dispatch = useDispatch();
+  console.log(products);
 
   useEffect(() => {
     fetchProducts(dispatch);
@@ -15,9 +16,11 @@ export default function ProductSearch() {
 
   return (
     <>
-      <BigSearch />
       {products?.length ? (
-        <ProductList products={products} />
+        <>
+          <BigSearch />
+          <ProductList products={products} />
+        </>
       ) : (
         <h1>Loading...</h1>
       )}
