@@ -9,7 +9,7 @@ import SignIn from './Components/SignIn'
 import Page404 from './Components/404'
 import VendorProfile from './Components/Profile/Vendor'
 import CustomerProfile from './Components/Profile/Customer'
-import ProductSearch from './Components/ProductSearch'
+import ProductSearch from './Components/Search/index'
 import { withAuth0 } from "@auth0/auth0-react";
 import useAuthClaim from "./hooks/customAuth";
 
