@@ -29,57 +29,69 @@ export default function ProductForm() {
       unit_amount_decimal: form.price.value,
       currency: 'USD',
     };
+    const quantity = form.quantity.value;
     const description = form.description.value;
     const vendor_id = stripe_id;
-    const newProduct = { name, default_price_data, description, vendor_id };
+    const newProduct = { name, quantity, default_price_data, description, vendor_id };
     handleSubmit(newProduct);
     form.reset();
   }
   return (
     <div>
-        
+
       <form className="mt-4 max-w-lg mx-auto bg-white p-8 rounded shadow-md" onSubmit={addNewProduct}>
         <p className='text-center w-full text-3xl py-4'> Create New Product </p>
-          <div className="mb-4">
-            <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
-              Name:
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="price" className="block text-gray-700 text-sm font-bold mb-2">
-              Price:
-            </label>
-            <input
-              type="number"
-              id="price"
-              name="price"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="description" className="block text-gray-700 text-sm font-bold mb-2">
-              Description:
-            </label>
-            <textarea
-              id="description"
-              name="description"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            className="bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-700 focus:outline-none focus:shadow-outline"
-          >
-            Submit
-          </button>
-        </form>
-      
+        <div className="mb-4">
+          <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
+            Name:
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="price" className="block text-gray-700 text-sm font-bold mb-2">
+            Price:
+          </label>
+          <input
+            type="number"
+            id="price"
+            name="price"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="price" className="block text-gray-700 text-sm font-bold mb-2">
+            Quantity:
+          </label>
+          <input
+            type="number"
+            id="quantity"
+            name="quantity"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="description" className="block text-gray-700 text-sm font-bold mb-2">
+            Description:
+          </label>
+          <textarea
+            id="description"
+            name="description"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          className="bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-700 focus:outline-none focus:shadow-outline"
+        >
+          Submit
+        </button>
+      </form>
+
     </div>
   );
 };
