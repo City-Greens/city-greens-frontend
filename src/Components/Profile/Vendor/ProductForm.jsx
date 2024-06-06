@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import useAuthClaim from '../../../hooks/customAuth';
 
 export default function ProductForm() {
   // State to manage form visibility
-
+  const stripe_id = useAuthClaim('stripe_id');
 
   const handleSubmit = async (newProduct) => {
     try {
@@ -23,12 +24,16 @@ export default function ProductForm() {
   const addNewProduct = (event) => {
     event.preventDefault();
     const form = event.target;
-    console.log(form)
     const name = form.name.value;
-    const price = form.price.value;
+    const default_price_data = {
+      unit_amount_decimal: form.price.value,
+      currency: 'USD',
+    };
     const description = form.description.value;
-    const newProduct = { name, price, description };
+    const vendor_id = stripe_id;
+    const newProduct = { name, default_price_data, description, vendor_id };
     handleSubmit(newProduct);
+    form.reset();
   }
   return (
     <div>

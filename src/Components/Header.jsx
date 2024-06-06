@@ -15,7 +15,7 @@ export default function Header() {
       <div className="flex-1 flex items-center">
         <ul className="flex space-x-4">
           <li className="cursor-pointer hover:underline text-xl px-4"><Link to="/">Home</Link></li>
-          <li className="cursor-pointer hover:underline text-xl px-4"><Link to="/search">Products</Link></li>
+          <li className="cursor-pointer hover:underline text-xl px-4"><Link to="/search">Search</Link></li>
           {isAuthenticated ?
             <li className="cursor-pointer hover:underline text-xl px-4"><Link to="/profile">Profile</Link></li>
             : null}
