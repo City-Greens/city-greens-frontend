@@ -1,6 +1,29 @@
 import defaultImage from '../../../assets/city-greens-logo.png';
 
-export default function Product({ name, price, description }) {
+export default function Product({product}) {
+
+  const { name, price, description } = product;
+  
+  const handleDelete = async () => { 
+    try {
+      console.log('product', product)
+      const response = await fetch('http://localhost:4242/delete-product', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(product),
+      });
+      const deleted_bool = await response.json();
+      if (deleted_bool) { 
+        alert('Product Deleted');
+      }
+      
+    } catch (err) {
+      console.error(err);
+    }
+  }
+  
   return (
     <div className="w-96 mx-5 bg-white shadow-lg rounded-lg overflow-hidden mt-4">
       <div className="flex">
@@ -17,7 +40,7 @@ export default function Product({ name, price, description }) {
         <button className="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700">
           Edit Product
         </button>
-        <button className="bg-red-500 text-white font-bold py-2 px-4 rounded hover:bg-red-700">
+        <button className="bg-red-500 text-white font-bold py-2 px-4 rounded hover:bg-red-700" onClick={() => handleDelete()}>
           Delete Product
         </button>
       </div>

@@ -18,15 +18,13 @@ import Loading from './Components/Loading'
 
 function App({ auth0 }) {
   const role = useAuthClaim('role');
-
   const { isAuthenticated } = auth0;
   return (
     <BrowserRouter>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/profile" element={role === 'vendor' &&  isAuthenticated ? <VendorProfile /> : <Home />} />
-        <Route path="/profile" element={role === 'customer' && isAuthenticated ? <CustomerProfile /> : <Home />} />
+        <Route path="/profile" element={isAuthenticated && role === 'vendor' ? <VendorProfile /> : role === 'customer' ? <CustomerProfile /> : <Loading/>} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/search" element={<ProductSearch />} />
