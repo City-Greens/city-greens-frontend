@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import ProductList from "./ProductList";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProducts } from "../../storage/products";
+import Loading from "../Loading";
 
 export default function ProductSearch() {
   const products = useSelector((state) => state.products.products);
@@ -22,7 +23,7 @@ export default function ProductSearch() {
           <ProductList products={products} />
         </>
       ) : (
-        <h1>Loading...</h1>
+        <Loading />
       )}
     </>
   );

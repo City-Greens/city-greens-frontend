@@ -17,7 +17,7 @@ export default function Example() {
         </h1> 
       </div>
       <div className="relative isolate px-6 py-16 lg:px-8 bg-white"> 
-        <p className="mt-6 text-lg leading-8 font-bold text-gray-600 text-center">
+        <p className="mt-6 text-lg leading-8 font-bold text-gray-600 text-center w-2/3 m-auto">
           At City Greens, we are committed to providing the best quality greens to our customers.
           We are a team of dedicated individuals who are passionate about greens and the environment.
           We believe that everyone should have access to fresh, healthy greens, and we are here to make that happen.

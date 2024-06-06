@@ -1,29 +1,29 @@
 
 export default function BigSearch() {
   return (
-    <>
-    
-    <div className="flex items-center space-x-4">
+    <div className="py-10">
+    <div className="flex justify-center items-center">
       <label className="flex items-center">
         <input
           type="radio"
-          name="option"
-          value="option1"
+          name="search-option"
+          value="Products"
           className="form-radio text-blue-600 h-4 w-4"
+          checked
         />
-        <span className="ml-2 text-gray-700">Option 1</span>
+        <span className="ml-2 text-gray-700">Products</span>
       </label>
-      <label className="flex items-center">
+      <label className="flex items-center px-5">
         <input
           type="radio"
-          name="option"
-          value="option2"
+          name="search-option"
+          value="Vendors"
           className="form-radio text-blue-600 h-4 w-4"
         />
-        <span className="ml-2 text-gray-700">Option 2</span>
+        <span className="ml-2 text-gray-700">Vendors</span>
       </label>
     </div>
-    <div className="flex justify-center items-center mt-10 py-10">
+    <div className="flex justify-center items-center">
       <input
         type="text"
         placeholder="Search..."
@@ -35,6 +35,6 @@ export default function BigSearch() {
         Search
       </button>
       </div>
-    </>
+    </div>
   )
 }

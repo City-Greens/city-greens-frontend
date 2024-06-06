@@ -1,5 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import defaultImage from '../../assets/city-greens-logo.png';
+import defaultImage from '../../assets/gen-produce.jpg';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../storage/cart';
 import { useSelector } from 'react-redux';
@@ -32,7 +32,7 @@ export default function Product({ product }) {
 
   const { isAuthenticated, loginWithRedirect } = useAuth0();
   return (
-    <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-4">
+    <div className="w-1/3 bg-white shadow-lg rounded-lg overflow-hidden mt-4">
       <div className="flex">
         <div className="w-1/3">
           <img className="h-full w-full object-cover" src={defaultImage} alt={name} />

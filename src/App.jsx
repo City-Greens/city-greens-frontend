@@ -31,7 +31,6 @@ function App({ auth0 }) {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/search" element={<ProductSearch />} />
         <Route path="/cart" element={isAuthenticated && role === 'customer' ? <Cart /> : null} />
-        <Route path="/loading" element={<Loading />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
       <Footer />
