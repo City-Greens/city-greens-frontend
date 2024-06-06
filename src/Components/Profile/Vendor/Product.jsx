@@ -2,7 +2,7 @@ import defaultImage from '../../../assets/city-greens-logo.png';
 
 export default function Product({ name, price, description }) {
   return (
-    <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-4">
+    <div className="w-96 mx-5 bg-white shadow-lg rounded-lg overflow-hidden mt-4">
       <div className="flex">
         <div className="w-1/3">
           <img className="h-full w-full object-cover" src={defaultImage} alt={name} />

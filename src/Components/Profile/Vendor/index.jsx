@@ -82,11 +82,11 @@ const VendorProfile = () => {
       {verified ?
 
         <div className='flex'>
-          <div className="flex-grow">
+          <div className="w-1/3">
             <VendorDisplay account={account} />
             <ProductForm />
           </div>
-          <div className='flex-grow overflow-scroll'>
+          <div className='w-2/3 mx-10'>
             {products?.length ? <ProductList products={products} /> : <p className='py-8 text-3xl'>No products yet!</p>}
           </div>
           

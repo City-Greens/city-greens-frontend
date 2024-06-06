@@ -26,19 +26,21 @@ export default function ProductForm() {
     const form = event.target;
     const name = form.name.value;
     const default_price_data = {
-      unit_amount_decimal: form.price.value,
-      currency: 'USD',
+      unit_amount: form.price.value + '00',
+      currency: 'usd',
     };
+    const price = form.price.value + '.00';
     const quantity = form.quantity.value;
     const description = form.description.value;
     const vendor_id = stripe_id;
-    const newProduct = { name, quantity, default_price_data, description, vendor_id };
+    const newProduct = { name, quantity, price, default_price_data, description, vendor_id };
     handleSubmit(newProduct);
     form.reset();
     alert('Product Added')
   }
+  
   return (
-    <div>
+    <div className='w-full bg-slate-50'>
 
       <form className="mt-4 max-w-lg mx-auto bg-white p-8 rounded shadow-md" onSubmit={addNewProduct}>
         <p className='text-center w-full text-3xl py-4'> Create New Product </p>
