@@ -5,6 +5,7 @@ import ProductForm from './ProductForm';
 import Verification from './Verification';
 import VendorDisplay from './VendorDisplay';
 import ProductList from './ProductList';
+import Loading from '../../Loading';
 
 const VendorProfile = () => {
   const [account, setAccount] = useState(null);
@@ -75,7 +76,7 @@ const VendorProfile = () => {
 
   return (
     <>
-      {!account && <h1>Loading...</h1>}
+      {!account && <Loading />}
       {!verified ? <Verification account={account} toggleVerification={toggleVerification} detailsSubmitted={detailsSubmitted} requirements={requirements} /> : null
       }
       {verified ?

@@ -25,8 +25,8 @@ function App({ auth0 }) {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        {role === 'vendor' && <Route path="/profile" element={isAuthenticated ? <VendorProfile /> : <Home />} />}
-        {role === 'customer' && <Route path="/profile" element={isAuthenticated ? <CustomerProfile /> : <Home />} />}
+        <Route path="/profile" element={role === 'vendor' &&  isAuthenticated ? <VendorProfile /> : <Home />} />
+        <Route path="/profile" element={role === 'customer' && isAuthenticated ? <CustomerProfile /> : <Home />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/search" element={<ProductSearch />} />
