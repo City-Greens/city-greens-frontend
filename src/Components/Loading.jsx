@@ -11,7 +11,7 @@ export default function Loading() {
           </svg>
         </div>
         <div className="flex items-center mx-10 h-20">
-          <div className="mx-auto text-4xl">Loading. Please be patient.</div>
+          <div className="mx-auto text-4xl">Loading. Grabbing your greens.</div>
         </div>
       </div>
     </>

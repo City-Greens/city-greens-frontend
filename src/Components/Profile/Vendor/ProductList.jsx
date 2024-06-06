@@ -6,7 +6,7 @@ export default function ProductList({ products }) {
     <div className='flex flex-wrap w-full h-screen overflow-y-scroll'>
       {
         products.map((product, key) => {
-          return <Product key={key} {...product} />
+          return <Product key={key} product={product} />
         })
       }
     </div>
