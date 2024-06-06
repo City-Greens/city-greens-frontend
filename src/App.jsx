@@ -10,6 +10,7 @@ import Page404 from './Components/404'
 import VendorProfile from './Components/Profile/Vendor'
 import CustomerProfile from './Components/Profile/Customer'
 import ProductSearch from './Components/Search/index'
+import Cart from './Components/Cart'
 import { withAuth0 } from "@auth0/auth0-react";
 import useAuthClaim from "./hooks/customAuth";
 
@@ -28,7 +29,8 @@ function App({ auth0 }) {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/search" element={<ProductSearch />} />
-        {/* <Route path="*" element={<Page404 />} /> */}
+        <Route path="/cart" element={isAuthenticated && role === 'customer' ? <Cart /> : null} />
+        <Route path="*" element={<Page404 />} />
       </Routes>
       <Footer />
     </BrowserRouter>
