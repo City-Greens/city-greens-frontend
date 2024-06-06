@@ -24,7 +24,7 @@ export default function Cart() {
         },
         body: JSON.stringify({
           line_items: cart.map(item => ({
-            price: item.id,
+            price: item.default_price,
             quantity: item.quantity,
           })),
           customer_id: customer.stripeId,
@@ -32,7 +32,10 @@ export default function Cart() {
       });
 
       const session = await response.json();
-      console.log(session);
+      console.log(session.url);
+      if (session.url) {
+        window.location.href = session.url;
+      }
     } catch (error) {
       console.error(error);
     }
