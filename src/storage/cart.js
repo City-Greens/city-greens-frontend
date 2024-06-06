@@ -2,6 +2,7 @@ import { createAction, createReducer } from "@reduxjs/toolkit";
 
 const initialState = {
   cart: [],
+  vendor_selected: "",
   customer: {},
 };
 
@@ -19,6 +20,10 @@ export const cartReducer = createReducer(initialState, (builder) => {
       if (itemIndex >= 0) {
         state.cart[itemIndex].quantity += 1;
       } else {
+        if (state.cart.length === 0) {
+          console.log("from the reducer", action.payload.stripeAccount);
+          state.vendor_selected = action.payload.stripeAccount;
+        }
         state.cart.push({ ...action.payload, quantity: 1 });
       }
     })
