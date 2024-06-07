@@ -1,8 +1,73 @@
-# React + Vite
+# City Greens - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/react-v18.2.0-blue)
+![Vite](https://img.shields.io/badge/vite-v5.2.0-blue)
+![License](https://img.shields.io/github/license/your-username/city-greens-frontend)
+![Version](https://img.shields.io/badge/version-0.0.0-blue)
 
-Currently, two official plugins are available:
+City Greens is a web application that allows users to find community Produce Sellers in their area and allows City Growers to list their produce. The user can navigate the City Greens website and buy or sell products depending on their role. The user can check out once they have found products they like as a buyer. The user can adjust prices and update or remove quantities as a seller.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Overview
+
+Here are the key features of City Greens:
+
+- **Buyers:**
+  - Can create an account
+  - Can search for produce sellers in their area
+  - Can view a list of produce sellers in their area
+
+- **Sellers:**
+  - Can create an account
+  - Can list their produce
+  - Can update/delete their produce listings
+
+## Installation
+
+1. Clone the repository
+    ```sh
+    git clone https://github.com/your-username/city-greens-frontend.git
+    ```
+2. Navigate to the project directory
+    ```sh
+    cd city-greens-frontend
+    ```
+3. Install the dependencies
+    ```sh
+    npm install
+    ```
+4. Create a `.env` file in the root directory and add your environment variables as needed
+
+## Usage
+
+1. Start the development server
+    ```sh
+    npm run dev
+    ```
+2. Build for production
+    ```sh
+    npm run build
+    ```
+3. Preview the production build
+    ```sh
+    npm run preview
+    ```
+4. Lint the project
+    ```sh
+    npm run lint
+    ```
+
+## Dependencies
+
+```json
+{
+  "@auth0/auth0-react": "^2.2.4",
+  "@reduxjs/toolkit": "^2.2.5",
+  "fuse.js": "^7.0.0",
+  "react": "^18.2.0",
+  "react-dom": "^18.2.0",
+  "react-icons": "^5.2.1",
+  "react-redux": "^9.1.2",
+  "react-router-dom": "^6.23.1",
+  "redux": "^5.0.1"
+}
+
