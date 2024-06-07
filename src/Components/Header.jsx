@@ -7,7 +7,8 @@ import useAuthClaim from '../hooks/customAuth';
 
 export default function Header() {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
-  const cartItems = useSelector((state) => state.cart.cart.length);
+  const cart = useSelector((state) => state.cart.cart);
+  const cartItems = cart.reduce((acc, item) => acc + item.quantity, 0);
   const role = useAuthClaim('role');
 
   return (
