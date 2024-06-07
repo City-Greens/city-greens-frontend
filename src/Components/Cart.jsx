@@ -50,7 +50,12 @@ export default function Cart() {
     dispatch(clearCart());
   };
 
-  const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  let totalPrice = 0;
+
+  for (let i = 0; i < cart.length; i++) {
+    totalPrice += parseFloat(cart[i].price.slice(0, -4)) * cart[i].quantity;
+  }
+  
 
   return (
     <div className="max-w-2xl mx-auto p-4 bg-white shadow-md rounded-lg mt-4">
