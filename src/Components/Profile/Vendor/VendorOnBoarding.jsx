@@ -2,6 +2,8 @@ import React from 'react';
 import useAuthClaim from "../../../hooks/customAuth";
 import { useAuth0 } from "@auth0/auth0-react";
 
+const vite_backend_url = import.meta.env.VITE_BACKEND_URL;
+
 export default function VendorOnBoarding() {
   const { user } = useAuth0();
   const onboarded = useAuthClaim('onboarded');
@@ -9,7 +11,7 @@ export default function VendorOnBoarding() {
 
   const handleCreateAccountLink = async () => {
     try {
-      const response = await fetch("http://localhost:4242/account_link", {
+      const response = await fetch(`${vite_backend_url}/account_link`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import useAuthClaim from '../../../hooks/customAuth';
+const vite_backend_url = import.meta.env.VITE_BACKEND_URL;
 
 export default function ProductForm() {
   // State to manage form visibility
@@ -7,7 +8,7 @@ export default function ProductForm() {
 
   const handleSubmit = async (newProduct) => {
     try {
-      const response = await fetch('http://localhost:4242/add-product', {
+      const response = await fetch(`${vite_backend_url}/add-product`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

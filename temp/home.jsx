@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+const vite_backend_url = import.meta.env.VITE_BACKEND_URL;
 
 export default function Home() {
   const [accountCreatePending, setAccountCreatePending] = useState(false);
@@ -21,7 +22,7 @@ export default function Home() {
             onClick={async () => {
               setAccountCreatePending(true);
               setError(false);
-              fetch("http://localhost:4242/account", {
+              fetch(`${vite_backend_url}/account`, {
                 method: "POST",
               })
                 .then((response) => response.json())
@@ -48,7 +49,7 @@ export default function Home() {
             onClick={async () => {
               setAccountLinkCreatePending(true);
               setError(false);
-              fetch("http://localhost:4242/account_link", {
+              fetch(`${vite_backend_url}/account_link`, {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",

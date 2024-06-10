@@ -1,4 +1,5 @@
 import defaultImage from '../../../assets/city-greens-logo.png';
+const vite_backend_url = import.meta.env.VITE_BACKEND_URL;
 
 export default function Product({ product }) {
 
@@ -7,7 +8,7 @@ export default function Product({ product }) {
   const handleDelete = async () => {
     try {
       console.log('product', product)
-      const response = await fetch('http://localhost:4242/delete-product', {
+      const response = await fetch(`${vite_backend_url}/delete-product`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

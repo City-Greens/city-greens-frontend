@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setCustomer, removeFromCart, clearCart } from '../storage/cart';
 import useAuthClaim from '../hooks/customAuth';
 
+const vite_backend_url = import.meta.env.VITE_BACKEND_URL;
+
 export default function Cart() {
   const cart = useSelector((state) => state.cart.cart);
   const customer = useSelector((state) => state.cart.customer);
@@ -17,7 +19,7 @@ export default function Cart() {
 
   const createCheckoutSession = async () => {
     try {
-      const response = await fetch('http://localhost:4242/checkout-session', {
+      const response = await fetch(`${vite_backend_url}/checkout-session`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

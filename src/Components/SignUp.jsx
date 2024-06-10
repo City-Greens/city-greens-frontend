@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+const vite_backend_url = import.meta.env.VITE_BACKEND_URL;
 
 export default function SignUp() {
 
@@ -55,9 +56,8 @@ export default function SignUp() {
     setAccountCreatePending(true);
     setError(false);
     const jsonData = JSON.stringify(formData);
-    console.log('hello?');
     try {
-      const response = await fetch("http://localhost:4242/account", {
+      const response = await fetch(`${vite_backend_url}/account`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -87,7 +87,7 @@ export default function SignUp() {
     setAccountLinkCreatePending(true);
     setError(false);
     try {
-      const response = await fetch("http://localhost:4242/account_link", {
+      const response = await fetch(`${vite_backend_url}/account_link`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

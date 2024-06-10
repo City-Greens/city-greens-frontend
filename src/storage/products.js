@@ -1,4 +1,5 @@
 import { createAction, createReducer } from "@reduxjs/toolkit";
+const vite_backend_url = import.meta.env.VITE_BACKEND_URL;
 
 const initialState = {
   products: [],
@@ -21,7 +22,7 @@ export const productsReducer = createReducer(initialState, (builder) => {
 
 export const fetchProducts = async (dispatch) => {
   try {
-    const response = await fetch("http://localhost:4242/all-products", {
+    const response = await fetch(`${vite_backend_url}/all-products`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

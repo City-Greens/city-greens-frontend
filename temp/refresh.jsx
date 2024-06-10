@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from 'react-router-dom';
+const vite_backend_url = import.meta.env.VITE_BACKEND_URL;
 
 export default function Refresh() {
   const { connectedAccountId } = useParams();
@@ -9,7 +10,7 @@ export default function Refresh() {
   React.useEffect(() => {
     if (connectedAccountId) {
       setAccountLinkCreatePending(true);
-      fetch("http://localhost:4242/account_link", {
+      fetch(`${vite_backend_url}/account_link`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
